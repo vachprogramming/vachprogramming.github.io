@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Your Name | Software Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- GLOBAL STYLES --- */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body { 
+            background-color: #0d1117; 
+            color: #c9d1d9; 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5 { color: #ffffff; font-weight: 600; }
+        .text-secondary { color: #8b949e !important; }
+        a { text-decoration: none; }
+
+        /* --- BUTTONS --- */
+        .btn-custom { 
+            background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+            color: white; 
+            border: none; 
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            min-height: 48px; /* Touch-friendly */
+        }
+        .btn-custom:hover { 
+            background: linear-gradient(135deg, #2ea043 0%, #3fb950 100%);
+            color: white; 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(35, 134, 54, 0.4);
+        }
+        
+        .btn-outline-custom { 
+            border: 1px solid #30363d; 
+            color: #58a6ff; 
+            background: #0d1117; 
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            min-height: 48px; /* Touch-friendly */
+        }
+        .btn-outline-custom:hover { 
+            border-color: #58a6ff; 
+            background-color: rgba(88, 166, 255, 0.1);
+            color: #58a6ff;
+            transform: translateY(-2px);
+        }
+
+        /* --- PROJECT CARDS --- */
+        .project-card { 
+            background-color: #161b22; 
+            border: 1px solid #30363d; 
+            overflow: hidden; 
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            border-color: #58a6ff;
+            box-shadow: 0 8px 30px rgba(88, 166, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        /* Image Styling */
+        .project-img {
+            width: 100%;
+            object-fit: contain;
+            background-color: #0d1117;
+            height: 220px;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.02);
+        }
+
+        /* --- TECH BADGES --- */
+        .tech-badge { 
+            background-color: rgba(56, 139, 253, 0.1); 
+            color: #58a6ff; 
+            border: 1px solid rgba(56, 139, 253, 0.4);
+            font-size: 0.75rem; 
+            padding: 6px 12px; 
+            border-radius: 20px; 
+            margin-right: 6px; 
+            display: inline-block;
+            margin-bottom: 8px;
+            font-family: 'Inter', monospace;
+            font-weight: 500;
+        }
+
+        /* --- SECTIONS --- */
+        .hero-section { 
+            padding: 40px 0 50px 0; 
+            border-bottom: 1px solid #21262d; 
+        }
+        
+        /* --- SKILLS SECTION --- */
+        .skills-section {
+            padding: 60px 0;
+            border-bottom: 1px solid #21262d;
+        }
+        
+        .skill-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-2px);
+        }
+        
+        .skill-card h5 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skill-card h5 i {
+            color: #58a6ff;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-item {
+            background: rgba(56, 139, 253, 0.1);
+            color: #c9d1d9;
+            border: 1px solid #30363d;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Location & Email info */
+        .info-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .info-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b949e;
+            font-size: 0.95rem;
+        }
+        
+        .info-badge i {
+            color: #58a6ff;
+        }
+        
+        .info-badge a {
+            color: #58a6ff;
+            transition: color 0.2s ease;
+        }
+        
+        .info-badge a:hover {
+            color: #79c0ff;
+        }
+        
+        /* --- CONTACT SECTION --- */
+        .contact-section {
+            background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+            padding: 60px 0;
+            border-top: 1px solid #21262d;
+        }
+        
+        .contact-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-control {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            padding: 14px 16px;
+            border-radius: 8px;
+            font-size: 16px; /* Prevents iOS zoom */
+            min-height: 48px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            background-color: #0d1117;
+            border-color: #58a6ff;
+            color: #c9d1d9;
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+        }
+        
+        .form-control::placeholder {
+            color: #6e7681;
+        }
+        
+        textarea.form-control {
+            min-height: 140px;
+            resize: vertical;
+        }
+        
+        .form-label {
+            color: #c9d1d9;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        /* Success message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 24px;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 32px;
+        }
+
+        /* --- MOBILE RESPONSIVE STYLES --- */
+        @media (max-width: 767px) {
+            /* Reduce container padding */
+            .container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            
+            /* Compact hero section */
+            .hero-section {
+                padding: 24px 0 32px 0;
+                text-align: center;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.75rem;
+                line-height: 1.2;
+                margin-bottom: 4px !important;
+            }
+            
+            .hero-section h4 {
+                font-size: 0.95rem;
+                margin-bottom: 12px !important;
+            }
+            
+            .hero-section .lead {
+                font-size: 0.9rem;
+                margin-bottom: 16px !important;
+            }
+            
+            /* Compact info badges */
+            .info-badges {
+                gap: 8px;
+                margin-bottom: 12px;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .info-badge {
+                font-size: 0.8rem;
+                gap: 6px;
+            }
+            
+            .hero-section .d-flex {
+                justify-content: center;
+            }
+            
+            /* Smaller, inline buttons */
+            .btn-custom, .btn-outline-custom {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+                min-height: 40px;
+            }
+            
+            .hero-section .gap-2 {
+                gap: 8px !important;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-section .gap-2 a,
+            .hero-section .gap-2 button {
+                width: auto;
+                flex: 0 0 auto;
+            }
+            
+            /* Section headers */
+            h2 {
+                font-size: 1.25rem;
+            }
+            
+            /* Skills section compact */
+            .skills-section {
+                padding: 32px 0;
+            }
+            
+            .skill-card {
+                padding: 16px;
+            }
+            
+            .skill-card h5 {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+            
+            .skill-item {
+                font-size: 0.75rem;
+                padding: 4px 10px;
+            }
+            
+            /* Project images - full width, auto height */
+            .project-img {
+                height: auto;
+                max-height: 200px;
+                width: 100%;
+            }
+            
+            .project-card .row.g-0 {
+                flex-direction: column;
+            }
+            
+            .project-card .col-md-6 {
+                width: 100%;
+            }
+            
+            .card-body {
+                padding: 16px !important;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+            
+            .card-text {
+                font-size: 0.85rem;
+            }
+            
+            /* Project buttons - inline row */
+            .project-card .d-flex.gap-3 {
+                flex-direction: row;
+                gap: 8px !important;
+                flex-wrap: wrap;
+            }
+            
+            .project-card .btn-outline-custom {
+                width: auto;
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
+            
+            .tech-badge {
+                font-size: 0.65rem;
+                padding: 4px 8px;
+                margin-right: 4px;
+                margin-bottom: 4px;
+            }
+            
+            .py-5 {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+            
+            .mb-5 {
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .g-5 {
+                --bs-gutter-y: 1.5rem;
+            }
+            
+            .g-4 {
+                --bs-gutter-x: 0.75rem;
+                --bs-gutter-y: 0.75rem;
+            }
+            
+            footer {
+                padding: 1.5rem 1rem !important;
+            }
+            
+            footer p {
+                font-size: 0.85rem;
+            }
+            
+            footer small {
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* Desktop adjustments */
+        @media (min-width: 768px) {
+            .project-img { 
+                height: 280px; 
+            }
+            
+            .mobile-spacer { 
+                margin-bottom: 0 !important; 
+            }
+            
+            .hero-section {
+                padding: 80px 0 100px 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 3.5rem;
+            }
+            
+            .contact-section {
+                padding: 80px 0;
+            }
+        }
+        
+        /* Large desktop */
+        @media (min-width: 992px) {
+            .project-img {
+                height: 320px;
+            }
+            
+            /* 4 skill cards in one row */
+            .skills-section .row {
+                display: flex;
+                flex-wrap: nowrap;
+            }
+            
+            .skills-section .col-md-6.col-lg-3 {
+                flex: 1;
+                max-width: 25%;
+            }
+        }
+
+        /* Mobile Spacer: Adds gap between stacked images on phone only */
+        .mobile-spacer { margin-bottom: 4px; }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Loading state for form button */
+        .btn-custom.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .btn-custom.loading::after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border: 2px solid transparent;
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+            margin-left: 8px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container hero-section">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="mb-2">Vachagan Muradyan</h1>
+                <h4 class="text-secondary mb-3">Software Engineer (Backend & applied AI)</h4>
+                
+                <div class="info-badges">
+                    <div class="info-badge">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Munich, Germany</span>
+                    </div>
+                    <div class="info-badge">
+                        <i class="bi bi-envelope-fill"></i>
+                        <a href="mailto:vachmuradyaan@gmail.com">vachmuradyaan@gmail.com</a>
+                    </div>
+                </div>
+                
+                <p class="lead mb-4 text-secondary">
+                    B.Sc. Management & Technology (Computer Engineering)<br>
+                    Technical University of Munich (TUM)
+                </p>
+
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="https://github.com/vachprogramming" target="_blank" class="btn btn-outline-custom">
+                        <i class="bi bi-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/vachagan-muradyan" target="_blank" class="btn btn-outline-custom">
+                        <i class="bi bi-linkedin"></i> LinkedIn
+                    </a>
+                    <button onclick="copyEmail()" class="btn btn-custom" id="copyEmailBtn">
+                        <i class="bi bi-envelope-fill"></i> Contact Me
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="container skills-section">
+        <h2 class="mb-4 pb-2 border-bottom border-secondary">Skills & Technologies</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card">
+                    <h5><i class="bi bi-code-slash"></i> Languages</h5>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">JavaScript/TypeScript</span>
+                        <span class="skill-item">HTML/CSS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card">
+                    <h5><i class="bi bi-stack"></i> Backend</h5>
+                    <div class="skill-list">
+                        <span class="skill-item">Django</span>
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card">
+                    <h5><i class="bi bi-database"></i> Data & DevOps</h5>
+                    <div class="skill-list">
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">Redis</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">Git</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card">
+                    <h5><i class="bi bi-robot"></i> AI / ML</h5>
+                    <div class="skill-list">
+                        <span class="skill-item">HuggingFace</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <h2 class="mb-5 pb-2 border-bottom border-secondary">Projects</h2>
+        <div class="row g-5">
+
+            <div class="col-12">
+                <div class="card project-card">
+                    <div class="row g-0">
+                        <div class="col-md-6 mobile-spacer">
+                            <img src="event/1.png" class="project-img border-end border-secondary" alt="Event Dashboard">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="event/2.png" class="project-img" alt="Architecture Diagram">
+                        </div>
+                    </div>
+                    
+                    <div class="card-body p-4">
+                        <h4 class="card-title">Scalable Event Booking Platform</h4>
+                        <p class="card-text text-secondary mt-3">
+                            A full-stack event management and booking platform built with a microservices architecture. Designed to handle high-concurrency booking scenarios ("The Taylor Swift Problem") using distributed locking.
+                        </p>
+                        
+                        <div class="mb-4 mt-3">
+                            <span class="tech-badge">FastAPI</span>
+                            <span class="tech-badge">Java Spring Boot</span>
+                            <span class="tech-badge">Redis</span>
+                            <span class="tech-badge">Docker</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">Next JS</span>
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <a href="https://github.com/vachprogramming/munich-event-platform" target="_blank" class="btn btn-outline-custom">
+                                <i class="bi bi-github"></i> Code
+                            </a>
+                            <a href="https://munich-event-platform.vercel.app/" target="_blank" class="btn btn-outline-custom">
+                                <i class="bi bi-window"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12">
+                <div class="card project-card">
+                    <div class="row g-0">
+                        <div class="col-md-6 mobile-spacer">
+                            <img src="extract/1.png" class="project-img border-end border-secondary" alt="PDF Input">
+                        </div>
+                        <div class="col-md-6">  
+                            <img src="extract/3.png" class="project-img" alt="JSON Output">
+                        </div>
+                    </div>
+                    
+                    <div class="card-body p-4">
+                        <h4 class="card-title">Invoice Intelligence (AI-Powered Extraction)</h4>
+                        <p class="card-text text-secondary mt-3">
+                            An AI-powered document processing pipeline that extracts structured data (JSON) from PDF invoices. Built with Llama-3.2 (via HuggingFace), FastAPI, and PostgreSQL.
+                        </p>
+                        
+                        <div class="mb-4 mt-3">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Llama-3.2</span>
+                            <span class="tech-badge">HuggingFace</span>
+                            <span class="tech-badge">Streamlit</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <a href="https://github.com/vachprogramming/invoice-intelligence-api" target="_blank" class="btn btn-outline-custom">
+                                <i class="bi bi-github"></i> Code
+                            </a>
+                            <a href="https://vachprogramming-invoice-intelligence-api-appfrontendui-qohw3h.streamlit.app/" target="_blank" class="btn btn-outline-custom">
+                                <i class="bi bi-window"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card project-card">
+                    <div class="row g-0">
+                        <div class="col-md-6 mobile-spacer">
+                            <img src="blog/1.png" class="project-img border-end border-secondary" alt="Blog Home">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="blog/2.png" class="project-img" alt="Admin Panel">
+                        </div>
+                    </div>
+                    
+                    <div class="card-body p-4">
+                        <h4 class="card-title">Blog Application</h4>
+                        <p class="card-text text-secondary mt-3">
+                            A full-stack blog application with user authentication, post management, commenting, search, and pagination. Built to demonstrate core web application features and clean CRUD workflows..
+
+
+                        
+                        <div class="mb-4 mt-3">
+                            <span class="tech-badge">Django</span>
+                            <span class="tech-badge">React JS</span>
+                            <span class="tech-badge">SQLite</span>
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <a href="https://github.com/vachprogramming/django-blog" target="_blank" class="btn btn-outline-custom">
+                                <i class="bi bi-github"></i> Code
+                            </a>
+                            <a href="https://vachprogramming.pythonanywhere.com/" target="_blank" class="btn btn-outline-custom">
+                                <i class="bi bi-window"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="py-5 text-center text-secondary border-top border-secondary">
+        <p class="mb-1">Munich, Germany</p>
+        <small>&copy; 2026 Vachagan Muradyan</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function copyEmail() {
+            const email = 'vachmuradyaan@gmail.com';
+            const btn = document.getElementById('copyEmailBtn');
+            const originalText = btn.innerHTML;
+            
+            // Try modern clipboard API first, fallback to older method
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email).then(() => showCopied());
+            } else {
+                // Fallback for local files
+                const textArea = document.createElement('textarea');
+                textArea.value = email;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-9999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopied();
+                } catch (err) {
+                    alert('Email: ' + email);
+                }
+                document.body.removeChild(textArea);
+            }
+            
+            function showCopied() {
+                btn.innerHTML = '<i class="bi bi-check-lg"></i> Email Copied!';
+                btn.style.background = 'linear-gradient(135deg, #2ea043 0%, #3fb950 100%)';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
