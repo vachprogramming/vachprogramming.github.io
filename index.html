@@ -70,6 +70,7 @@
             overflow: hidden; 
             border-radius: 12px;
             transition: all 0.3s ease;
+            text-align: center;
         }
         
         .project-card:hover {
@@ -105,17 +106,30 @@
             font-family: 'Inter', monospace;
             font-weight: 500;
         }
+        
+        /* Center tech badges and buttons in project cards */
+        .project-card .mb-4.mt-3 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .project-card .d-flex.gap-3 {
+            justify-content: center;
+        }
 
         /* --- SECTIONS --- */
         .hero-section { 
             padding: 40px 0 50px 0; 
-            border-bottom: 1px solid #21262d; 
+            border-bottom: 1px solid #21262d;
+            text-align: center;
         }
         
         /* --- SKILLS SECTION --- */
         .skills-section {
             padding: 60px 0;
             border-bottom: 1px solid #21262d;
+            text-align: center;
         }
         
         .skill-card {
@@ -137,6 +151,7 @@
             margin-bottom: 16px;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
         }
         
@@ -148,6 +163,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            justify-content: center;
         }
         
         .skill-item {
@@ -166,6 +182,7 @@
             flex-wrap: wrap;
             gap: 16px;
             margin-bottom: 20px;
+            justify-content: center;
         }
         
         .info-badge {
@@ -533,8 +550,8 @@
 <body>
 
     <div class="container hero-section">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-8">
                 <h1 class="mb-2">Vachagan Muradyan</h1>
                 <h4 class="text-secondary mb-3">Software Engineer (Backend & applied AI)</h4>
                 
@@ -554,7 +571,7 @@
                     Technical University of Munich (TUM)
                 </p>
 
-                <div class="d-flex flex-wrap gap-2">
+                <div class="d-flex flex-wrap gap-2 justify-content-center">
                     <a href="https://github.com/vachprogramming" target="_blank" class="btn btn-outline-custom">
                         <i class="bi bi-github"></i> GitHub
                     </a>
@@ -617,7 +634,7 @@
     </div>
 
     <div class="container py-5">
-        <h2 class="mb-5 pb-2 border-bottom border-secondary">Projects</h2>
+        <h2 class="mb-5 pb-2 border-bottom border-secondary text-center">Projects</h2>
         <div class="row g-5">
 
             <div class="col-12">
