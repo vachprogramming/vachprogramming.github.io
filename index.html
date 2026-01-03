@@ -336,28 +336,47 @@
                 flex: 0 0 auto;
             }
             
-            /* Section headers */
+            /* Section headers - centered */
             h2 {
                 font-size: 1.25rem;
+                text-align: center;
             }
             
-            /* Skills section compact */
+            /* Skills section compact and centered */
             .skills-section {
                 padding: 32px 0;
+                text-align: center;
             }
             
             .skill-card {
                 padding: 16px;
+                text-align: center;
             }
             
             .skill-card h5 {
                 font-size: 0.9rem;
                 margin-bottom: 10px;
+                justify-content: center;
+            }
+            
+            .skill-list {
+                justify-content: center;
             }
             
             .skill-item {
                 font-size: 0.75rem;
                 padding: 4px 10px;
+            }
+            
+            /* Project cards centered */
+            .card-body {
+                text-align: center;
+            }
+            
+            .project-card .mb-4.mt-3 {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             /* Project images - full width, auto height */
@@ -387,11 +406,12 @@
                 font-size: 0.85rem;
             }
             
-            /* Project buttons - inline row */
+            /* Project buttons - inline row centered */
             .project-card .d-flex.gap-3 {
                 flex-direction: row;
                 gap: 8px !important;
                 flex-wrap: wrap;
+                justify-content: center;
             }
             
             .project-card .btn-outline-custom {
