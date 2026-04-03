@@ -63,6 +63,61 @@
             transform: translateY(-2px);
         }
 
+        /* Hero button variants */
+        .btn-github {
+            background: #21262d;
+            color: #f0f6fc;
+            border: 1px solid #30363d;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-height: 48px;
+        }
+        .btn-github:hover {
+            background: #30363d;
+            color: #ffffff;
+            border-color: #8b949e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(139, 148, 158, 0.25);
+        }
+
+        .btn-linkedin {
+            background: #0a66c2;
+            color: #ffffff;
+            border: 1px solid #0a66c2;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-height: 48px;
+        }
+        .btn-linkedin:hover {
+            background: #0077b5;
+            color: #ffffff;
+            border-color: #3b9eff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(10, 102, 194, 0.5);
+        }
+
+        .btn-resume {
+            background: rgba(227, 179, 65, 0.15);
+            color: #e3b341;
+            border: 1px solid rgba(227, 179, 65, 0.5);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-height: 48px;
+        }
+        .btn-resume:hover {
+            background: rgba(227, 179, 65, 0.3);
+            color: #f0d060;
+            border-color: #e3b341;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(227, 179, 65, 0.4);
+        }
+
         /* --- PROJECT CARDS --- */
         .project-card { 
             background-color: #161b22; 
@@ -591,15 +646,18 @@
                 </p>
 
                 <div class="d-flex flex-wrap gap-2 justify-content-center">
-                    <a href="https://github.com/vachprogramming" target="_blank" class="btn btn-outline-custom">
+                    <a href="https://github.com/vachprogramming" target="_blank" class="btn btn-github">
                         <i class="bi bi-github"></i> GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/vachagan-muradyan" target="_blank" class="btn btn-outline-custom">
+                    <a href="https://www.linkedin.com/in/vachagan-muradyan" target="_blank" class="btn btn-linkedin">
                         <i class="bi bi-linkedin"></i> LinkedIn
                     </a>
                     <button onclick="copyEmail()" class="btn btn-custom" id="copyEmailBtn">
                         <i class="bi bi-envelope-fill"></i> Contact Me
                     </button>
+                    <a href="Vachagan_Muradyan_Resume.pdf" download class="btn btn-resume" id="downloadResumeBtn">
+                        <i class="bi bi-download"></i> Resume
+                    </a>
                 </div>
             </div>
         </div>
